@@ -1,7 +1,7 @@
 import { React, useState ,  useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { navLinks } from '../../data/navLinks';
-import { Stethoscope, Menu, X } from 'lucide-react';
+import { Stethoscope, Menu, X, User2 } from 'lucide-react';
 import '../../../src/App.css'; // Ensure you have the correct path to your CSS file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCaretDown, faCalendarAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
@@ -79,6 +79,12 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faCalendarAlt} className="mr-2 text-red-500" />
             My Appointments
           </a>
+          <Link
+              to="/Profile"
+              className=" px-4 py-2 text-gray-800 font-medium hover:bg-gray-100 flex "
+            >
+              <span><User2 className='text-red-500 mr-2 -ml-1' /></span> My Profile
+            </Link>
           <button
             onClick={handleLogout}
             className="w-full text-left px-4 py-2 flex items-center hover:bg-gray-100"
@@ -125,6 +131,12 @@ const Navbar = () => {
             >
               My Appointments
             </a>
+            <div
+              href="/profile-Section"
+              className=" px-4 py-2 text-gray-800 font-medium hover:bg-gray-100"
+            >
+              My Profile
+            </div>
             <button
               onClick={handleLogout}
               className="w-full text-left px-4 py-2 text-red-600 font-medium"

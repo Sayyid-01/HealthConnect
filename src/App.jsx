@@ -16,6 +16,7 @@ import SignUp from './components/Auth/SignUp'
 
 import './App.css'
 import DoctorDetails from './components/pages/DoctorDetails'
+import MainProfile from './components/Profile/MainProfile'
 
 function App() {
   useEffect(() => {
@@ -48,7 +49,7 @@ function App() {
         <Route path="/doctor" element={<Doctor />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/appointment/:id" element={<DoctorDetails/>} />
-
+        <Route path="/profile" element={<MainProfile />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

@@ -238,6 +238,7 @@ export default function Team() {
                 variants={imageVariants}
                 whileHover="hover"
               />
+              {console.log("Image loaded:", img)}
               {/* 3D Shadow effect */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-br from-red-400/30 to-purple-600/30 -z-10 blur-xl"

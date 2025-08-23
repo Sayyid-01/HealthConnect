@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -17,28 +18,26 @@ const SignUp = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("https://backend-health-connect.vercel.app/auth/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ name, username, email, password }),
-            });
+            const response = await axios.post(
+                "https://backend-health-connect.vercel.app/auth/signup",
+                { name, username, email, password },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
 
-            const result = await response.text();
-
-            if (response.ok) {
-                alert("Signup successful! Please check your email for the OTP.");
-                setShowOTPForm(true);
-            } else {
-                alert("Signup failed: " + result);
-                setName("");
-                setUsername("");
-                setEmail("");
-                setPassword("");
-            }
+            alert("Signup successful! Please check your email for the OTP.");
+            setShowOTPForm(true);
         } catch (error) {
-            alert("An error occurred. Please try again.");
+            const errorMessage =
+                error.response?.data?.message || error.response?.data || "Signup failed.";
+            alert("Signup failed: " + errorMessage);
+            setName("");
+            setUsername("");
+            setEmail("");
+            setPassword("");
         } finally {
             setLoading(false);
         }
@@ -49,27 +48,20 @@ const SignUp = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("https://backend-health-connect.vercel.app/auth/verify-email", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ 
-                    email, 
-                    verification_code: otp }),
-            });
+            await axios.post(
+                "https://backend-health-connect.vercel.app/auth/verify-email",
+                { email, verification_code: otp },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
 
-            const result = await response.text();
-
-            if (response.ok) {
-                alert("Email verified! You can now log in.");
-                navigate("/signin");
-            } else {
-                alert("Invalid OTP. Please try again.");
-                setOtp("");
-            }
+            alert("Email verified! You can now log in.");
+            navigate("/signin");
         } catch (error) {
-            alert("An error occurred during OTP verification.");
+            alert("Invalid OTP. Please try again.");
             setOtp("");
         } finally {
             setLoading(false);
