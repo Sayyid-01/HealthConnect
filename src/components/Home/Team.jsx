@@ -5,22 +5,22 @@ const doctors = [
   {
     name: "Dr. Richard James",
     specialty: "Cardiology",
-    img: "https://mighty.tools/mockmind-api/content/human/65.jpg",
+    img: "https://images.unsplash.com/photo-1550831107-1553da8c8464?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Dr. Sarah White",
     specialty: "Urology",
-    img: "https://mighty.tools/mockmind-api/content/human/44.jpg",
+    img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Dr. Emma Brown",
     specialty: "Dental Care",
-    img: "https://mighty.tools/mockmind-api/content/human/57.jpg",
+    img: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     name: "Dr. John Smith",
     specialty: "Neurology",
-    img: "https://mighty.tools/mockmind-api/content/human/5.jpg",
+    img: "https://randomuser.me/api/portraits/men/32.jpg",
   },
 ];
 
